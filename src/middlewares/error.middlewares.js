@@ -17,7 +17,7 @@ const errorHandler = (err, req, res, next) => {
   const response = {
     ...error,
     message: error.message,
-    ...ApiError(
+    ...new ApiError(
       process.env.NODE_ENV === "development" ? { stack: error.stack } : {}
     ),
   };
