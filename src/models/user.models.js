@@ -29,7 +29,7 @@ const userSchema = new Schema(
       type: String, //cloudinary URL
       required: true,
     },
-    avatar: {
+    coverImage: {
       type: String, //cloudinary URL
     },
     watchHistory: [
@@ -80,7 +80,7 @@ userSchema.methods.generateAccessToken = function () {
 };
 
 userSchema.methods.generateRefreshToken = function () {
-    //short lived access token
+
     return jwt.sign(
       {
         _id: this._id,
